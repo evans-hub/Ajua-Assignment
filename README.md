@@ -6,6 +6,7 @@ This project is a Spring Boot application for managing drones and their loads. I
 ## Prerequisites
 
 - Java 17 or later
+- Maven
 
 ## Getting Started
 

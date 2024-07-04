@@ -14,8 +14,7 @@ import java.time.LocalDateTime;
 @Component
 public class BatteryCheck {
 
-    private static final Logger logger = LoggerFactory.getLogger(BatteryCheck.class);
-
+      Logger logger  = LoggerFactory.getLogger(BatteryCheck.class);
     @Autowired
     private DroneRepo droneRepo;
     @Autowired

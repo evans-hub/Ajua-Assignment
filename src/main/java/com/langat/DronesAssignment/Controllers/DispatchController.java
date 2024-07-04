@@ -28,18 +28,18 @@ public class DispatchController {
     }
 
     @PostMapping("/load/{droneId}")
-    public Drone loadDrone(@Valid @PathVariable Long droneId, @RequestBody List<Medication> medications) {
-        return dispatchService.loadDrone(droneId, medications);
+    public ResponseEntity<Drone> loadDrone(@Valid @PathVariable Long droneId, @RequestBody List<Medication> medications) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(dispatchService.loadDrone(droneId, medications));
     }
 
     @GetMapping("/{droneId}/medications")
-    public List<Medication> getLoadedMedications(@PathVariable Long droneId) {
-        return dispatchService.getLoadedMedications(droneId);
+    public ResponseEntity<List<Medication>> getLoadedMedications(@PathVariable Long droneId) {
+        return ResponseEntity.status(HttpStatus.FOUND).body(dispatchService.getLoadedMedications(droneId));
     }
 
     @GetMapping("/available")
-    public List<Drone> getAvailableDrones() {
-        return dispatchService.getAvailableDrones();
+    public ResponseEntity<List<Drone>> getAvailableDrones() {
+        return ResponseEntity.status(HttpStatus.FOUND).body(dispatchService.getAvailableDrones());
     }
 
     @GetMapping("/{droneId}/battery")

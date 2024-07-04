@@ -1,6 +1,6 @@
 # Drones Assignment
 
-This project is a Spring Boot application for managing drones and their loads. It includes functionalities such as registering drones, loading medications onto drones, checking drone battery levels, retrieving loaded medications for a specific drone, and getting available drones.
+This project is a Spring Boot application for managing drones and their loads. It includes functionalities such as registering drones, loading medications onto drones, checking drone battery levels, retrieving loaded medications for a specific drone and getting available drones.
 
 
 ## Prerequisites

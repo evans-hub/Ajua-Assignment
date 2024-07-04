@@ -29,7 +29,6 @@ public class Drone {
     @Max(value = 500, message = "Weight limit must be less than or equal to 500 grams")
     private Integer weightLimit;
     @NotNull(message = "Battery Capacity is required")
-
     @Max(value = 100, message = "Battery capacity must be below 100")
     private Integer batteryCapacity;
     @Enumerated(EnumType.STRING)

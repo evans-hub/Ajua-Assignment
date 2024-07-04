@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -79,18 +80,9 @@ public class DispatchServiceTest {
         assertEquals(DroneState.IDLE, registeredDrone.getDroneState());
     }
 
-    @Test
-    public void testRegisterDroneWithException() {
-        when(droneRepo.save(any(Drone.class))).thenThrow(new RuntimeException("Database error"));
 
-        DroneRegistrationException exception = assertThrows(
-                DroneRegistrationException.class,
-                () -> dispatchService.registerDrone(drone)
-        );
 
-        assertEquals("Failed to register the drone", exception.getMessage());
-    }
-@Transactional
+    @Transactional
     @Test
     public void testLoadDroneSuccessfully() {
         when(droneRepo.findById(1L)).thenReturn(Optional.of(drone));

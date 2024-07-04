@@ -4,34 +4,34 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.langat.DronesAssignment.Enums.DroneModel;
 import com.langat.DronesAssignment.Enums.DroneState;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Drone {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NonNull
-    @Max(value = 100, message = "Maximum Serial Number characters is 100")
+    private Long droneId;
+    @NotBlank(message = "Serial number is required")
+    @Size(max = 100, message = "Maximum Serial Number characters is 100")
     private String serialNumber;
     @Enumerated(EnumType.STRING)
     private DroneModel model;
-    @Max(value = 500, message = "Weight limit must be 500 grams or less")
-    private int weightLimit;
-    @NotNull
-    @Max(value = 100, message = "Battery capacity must be between 0 and 100")
-    private int batteryCapacity;
+    @NotNull(message = "Weight Limit is required")
+    @Max(value = 500, message = "Weight limit must be less than or equal to 500 grams")
+    private Integer weightLimit;
+    @NotNull(message = "Battery Capacity is required")
+
+    @Max(value = 100, message = "Battery capacity must be below 100")
+    private Integer batteryCapacity;
     @Enumerated(EnumType.STRING)
     private DroneState droneState;
     @OneToMany(mappedBy = "drone", cascade = CascadeType.ALL)

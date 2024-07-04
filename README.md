@@ -59,13 +59,13 @@ To run the tests, use the following command:
     "name": "Medication1",
     "weight": 10,
     "code": "MED1",
-    "image": "image1.png"
+    "image": ""https://testing/images/med1.png""
   },
   {
     "name": "Medication2",
     "weight": 20,
     "code": "MED2",
-    "image": "image2.png"
+    "image": ""https://testing/images/med2.png""
   }
 ]
 ```
